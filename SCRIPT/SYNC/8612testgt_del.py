@@ -1,0 +1,36 @@
+from utils.database import config as cfg
+
+# 帮客户删除部分产品在应用库的数据 呵呵
+
+ENGINE_RD = cfg.load_engine()["2Gb"]
+ENGINE_8612GT = cfg.load_engine()["8612test_sync"]
+
+NOT_SYNC_PRODUCT = (
+    # 雷根
+    'JR006559', 'JR006560', 'JR006602', 'JR010118', 'JR013757', 'JR015022', 'JR018212', 'JR025431',
+    'JR027002', 'JR028121', 'JR031510', 'JR033010', 'JR034849', 'JR040097', 'JR058358', 'JR058516',
+    'JR065039', 'JR070143', 'JR078235', 'JR087376', 'JR100709', 'JR100710', 'JR100711', 'JR102591',
+    'JR103119', 'JR103556', 'JR103755', 'JR103939', 'JR105422', 'JR106452', 'JR109261', 'JR113887',
+    'JR114298', 'JR115117', 'JR122835', 'JR122945', 'JR123264', 'JR126054', 'JR126094', 'JR126880',
+    'JR131987', 'JR134330', 'JR134488', 'JR134505', 'JR134507', 'JR134515', 'JR135170', 'JR136217',
+    'JR137446', 'JR137524', 'JR137557', 'JR137577', 'JR138618', 'JR138619', 'JR139002', 'JR139099',
+    'JR139389', 'JR139390', 'JR139532', 'JR139769', 'JR141827', 'JR141896', 'JR142194', 'JR142961',
+    'JR143253', 'JR147568',
+    # 洛书
+    'JR155148', 'JR155579', 'JR156934', 'JR147792', 'JR142156', 'JR142309', 'JR138694', 'JR087140',
+    'JR086911', 'JR086986', 'JR036144', 'JR063527', 'JR073645', 'JR085036', 'JR074126', 'JR046611',
+    'JR100769', 'JR109354', 'JR024256', 'JR071872', 'JR023887', 'JR027867', 'JR027868', 'JR027869',
+    'JR027870', 'JR049010', 'JR147330',
+)
+FUNDS_TO_DEL = "fund_id IN {fid}".format(fid=str(NOT_SYNC_PRODUCT))
+
+TABLES = {"fund_nv_data", "fund_info", "fund_info_aggregation"}
+
+
+def delete_funds():
+    for table in TABLES:
+        sql_del = "DELETE FROM {tb} WHERE {cond}".format(tb=table, cond=FUNDS_TO_DEL)
+        ENGINE_8612GT.execute(sql_del)
+
+if __name__ == "__main__":
+    delete_funds()

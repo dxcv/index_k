@@ -1,0 +1,35 @@
+######## SYNC ########
+# 8612testgt
+35 * * * * nohup /bin/sh /home/yusy/tasks/sync/8612testgt.sh >> /home/yusy/log/cron/log_8612testgt.log 2>&1
+
+# 4119product
+5 * * * * nohup /bin/sh /home/yusy/tasks/sync/4119product.sh >> /home/yusy/log/cron/log_4119product.log 2>&1
+
+# 4119product_mutual
+5 2 * * * nohup /bin/sh /home/yusy/tasks/sync/4119product_mutual.sh >> /home/yusy/log/cron/log_4119product_mutual.log 2>&1
+
+# 4119product_mutual_indicator
+15 * * * * nohup /bin/sh /home/yusy/tasks/sync/4119product_mutual_fi.sh >> /home/yusy/log/cron/log_4119product_mutual_fi.log 2>&1
+
+# 8612testsubsidiary
+35 0 * * * nohup /bin/sh /home/yusy/tasks/sync/8612testsubsidiary.sh >> /home/yusy/log/cron/log_8612testsubsidiary.log 2>&1
+
+
+######## ETL ########
+# indicator
+35 23 * * * nohup /bin/sh /home/yusy/tasks/private/indicator_w.sh >> /home/yusy/log/cron/log_indicator_w.log 2>&1
+
+5 23 9 * * nohup /bin/sh /home/yusy/tasks/private/indicator_m.sh >> /home/yusy/log/cron/log_indicator_m.log 2>&1
+
+22 5 10 * * nohup /bin/sh /home/yusy/tasks/easy/type_rank.sh >> /home/yusy/log/cron/log_type_rank.log 2>&1
+
+
+######## CONFIG ########
+5 * * * * nohup /bin/sh /home/yusy/tasks/sync/config_private.sh >> /home/yusy/log/cron/log_cfgprivate.log 2>&1
+
+0 * * * * nohup /bin/sh /home/yusy/tasks/sync/sync_source.sh >> /home/yusy/log/cron/log_syncsource.log 2>&1
+
+
+# TEST CRON
+# * * * * * nohup echo 1 >> /home//yusy/log/cron/log_test 2>&1
+# * * * * * echo 1 >> /dev/null 2>&1

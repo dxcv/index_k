@@ -1,0 +1,62 @@
+######## 2Gb ########
+#2Gb fund_nv_data
+40 23 * * * nohup /bin/sh /home/yusy/tasks/private/nv_update.sh >> /home/yusy/log/cron/log_nvdata.log 2>&1
+
+# 2Gb pe_index
+5 2 * * 1 nohup /bin/sh /home/yusy/tasks/private/pe_w.sh >> /home/yusy/log/cron/log_pew.log 2>&1
+5 2 7 * * nohup /bin/sh /home/yusy/tasks/private/pe_m.sh >> /home/yusy/log/cron/log_pem.log 2>&1
+
+# 2Gb indicator_bm
+5 3 * * * nohup /bin/sh /home/yusy/tasks/private/indicator_bm_w.sh >> /home/yusy/log/cron/log_bmw.log 2>&1
+5 3 7 * * nohup /bin/sh /home/yusy/tasks/private/indicator_bm_m.sh >> /home/yusy/log/cron/log_bmm.log 2>&1
+5 2,8,14,20 * * * nohup /bin/sh /home/yusy/tasks/private/indicator_bm_d.sh >> /home/yusy/log/cron/log_bmd.log 2>&1
+
+# 2Gb indicator_org
+15 3 7 * * nohup /bin/sh /home/yusy/tasks/private/indicator_org_m.sh >> /home/yusy/log/cron/log_org.log 2>&1
+
+# 2Gb indicator_fund_w
+#55 * * * * nohup /bin/sh /home/yusy/tasks/private/indicator_fund_w.sh >> /home/yusy/log/cron/log_fiw.log 2>&1
+
+# 2Gb indicator_fund_m
+#35 2 8 * * nohup /bin/sh /home/yusy/tasks/private/indicator_fund_m.sh >> /home/yusy/log/cron/log_fim.log 2>&1
+
+# 2Gb fund_info{data_freq}
+45 0 * * 6 nohup /bin/sh /home/yusy/tasks/private/info_freq.sh >> /home/yusy/log/cron/log_finfo.log 2>&1
+
+# 2Gb fund_info{fund_type_strategy, fund_type_issuance, fund_type_structure, structure_hierarchy}, fund_info_aggregation
+5 1 * * * nohup /bin/sh /home/yusy/tasks/private/info_type.sh >> /home/yusy/log/cron/log_finfo.log 2>&1
+
+# 2Gb time_index
+5 1 * * * nohup /bin/sh /home/yusy/tasks/private/time_index.sh >> /home/yusy/log/cron/log_ti.log 2>&1
+
+# 2Gb org_info(org_scale_range, master_strategy, managers, funds_num, base_date)
+5 1 * * * nohup /bin/sh /home/yusy/tasks/private/org_info.sh >> /home/yusy/log/cron/log_oi.log 2>&1
+
+# 2Gb market_index(cbi)
+5 2,5,8,11,14,17,20,23 * * * nohup /bin/sh /home/yusy/tasks/private/crawl_market_index.sh >> /home/yusy/log/cron/log_crawlmi.log 2>&1
+
+# 2Gb delete wrong
+5 0 * * * nohup /bin/sh /home/yusy/tasks/private/delete_wrong.sh >> /home/yusy/log/cron/log_delete_wrong.log 2>&1
+
+######## 2Gm ########
+35 4 * * * nohup /bin/sh /home/yusy/tasks/mutual/id_match.sh >> /home/yusy/log/cron/mutual/log_id_match.log 2>&1
+
+5 5 * * * nohup /bin/sh /home/yusy/tasks/mutual/fund_info.sh >> /home/yusy/log/cron/mutual/log_fund_info.log 2>&1
+
+5 * * * * nohup /bin/sh /home/yusy/tasks/mutual/fund_nv.sh >> /home/yusy/log/cron/mutual/log_fund_nv.log 2>&1
+
+10 5 * * * nohup /bin/sh /home/yusy/tasks/mutual/fund_type_mapping.sh >> /home/yusy/log/cron/mutual/log_fund_type_mapping.log 2>&1
+
+35 5 * * * nohup /bin/sh /home/yusy/tasks/mutual/fund_asset_scale.sh >> /home/yusy/log/cron/mutual/log_fund_asset_scale.log 2>&1
+
+45 5 * * * nohup /bin/sh /home/yusy/tasks/mutual/dividend_split.sh >> /home/yusy/log/cron/mutual/log_dividend_split.log 2>&1
+
+46 5 * * * nohup /bin/sh /home/yusy/tasks/mutual/fund_sheet.sh >> /home/yusy/log/cron/mutual/log_fund_sheet.log 2>&1
+
+50 5 * * * nohup /bin/sh /home/yusy/tasks/mutual/mapping.sh >> /home/yusy/log/cron/mutual/log_mapping.log 2>&1
+
+5 6 * * * nohup /bin/sh /home/yusy/tasks/mutual/org_info.sh >> /home/yusy/log/cron/mutual/log_org_info.log 2>&1
+
+15 6 * * * nohup /bin/sh /home/yusy/tasks/mutual/org_asset.sh >> /home/yusy/log/cron/mutual/log_org_asset.log 2>&1
+
+

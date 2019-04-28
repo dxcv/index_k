@@ -1,0 +1,24 @@
+######## 2Gb ########
+# 2Gb indicator_fund_w
+55 * * * * nohup /bin/sh /home/yusy/tasks/private/indicator_fund_w.sh >> /home/yusy/log/cron/private/log_fiw.log 2>&1
+25 * * * * nohup /bin/sh /home/yusy/tasks/private/indicator_fund_w2.sh >> /home/yusy/log/cron/private/log_fiw2.log 2>&1
+
+# 2Gb indicator_fund_m
+35 2 8 * * nohup /bin/sh /home/yusy/tasks/private/indicator_fund_m.sh >> /home/yusy/log/cron/private/fim.log 2>&1
+35 2 8 * * nohup /bin/sh /home/yusy/tasks/private/indicator_fund_m2.sh >> /home/yusy/log/cron/private/fim2.log 2>&1
+
+
+
+
+######## 2Gbp ########
+# 2Gbp indicator_fund_w
+15 * * * * nohup /bin/sh /home/yusy/tasks/mutual/indicator_fund_w.sh >> /home/yusy/log/cron/mutual/fiw.log 2>&1
+29 * * * * nohup /bin/sh /home/yusy/tasks/mutual/indicator_fund_w2.sh >> /home/yusy/log/cron/mutual/fiw2.log 2>&1
+
+# 2Gbp indicator_fund_m
+5 2 7 * * nohup /bin/sh /home/yusy/tasks/mutual/indicator_fund_m.sh >> /home/yusy/log/cron/mutual/fim.log 2>&1
+5 2 7 * * nohup /bin/sh /home/yusy/tasks/mutual/indicator_fund_m2.sh >> /home/yusy/log/cron/mutual/fim2.log 2>&1
+
+# 2Gbp indicator_fund_d
+20 * * * * nohup /bin/sh /home/yusy/tasks/mutual/indicator_fund_d.sh >> /home/yusy/log/cron/mutual/fid.log 2>&1
+35 * * * * nohup /bin/sh /home/yusy/tasks/mutual/indicator_fund_d2.sh >> /home/yusy/log/cron/mutual/fid2.log 2>&1
